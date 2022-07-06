@@ -155,23 +155,8 @@ void triangles() {
 
 			for (int u = 0; u < modelCow.vertexes.size(); u++) {
 
-				float translate[4][4] = {
-						1.f,0.f,0.f,0.f,
-						0.f,1.f,0.f,0.f,
-						0.f,0.f,1.f,0.f,
-						0.f,0.f,0.f,1.f };
-				float scale[4][4] = {
-						1.f,0.f,0.f,0.f,
-						0.f,1.f,0.f,0.f,
-						0.f,0.f,1.f,0.f,
-						0.f,0.f,0.f,1.f };
-				float rotate[4][4] = {
-						1.f,0.f,0.f,0.f,
-						0.f,1.f,0.f,0.f,
-						0.f,0.f,1.f,0.f,
-						0.f,0.f,0.f,1.f };
-
-
+				Vec4 
+				
 				modelCow.vertexes[u].vector = Matrix4x4::multiplication4x4(
 					Matrix4x4::multiplication4x4(translate, scale), rotate);
 			}

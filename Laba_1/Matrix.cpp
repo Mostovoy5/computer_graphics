@@ -67,7 +67,6 @@ Vec4 rotationX(float angle, Vec4 vec) {
 		0,  0,  s,  c
 	};
 	multMatrixVec4(rotate, vec);
-
 }
 
 Vec4 scale(float size, Vec4 vec) {

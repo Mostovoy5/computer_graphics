@@ -155,7 +155,7 @@ void triangles() {
 
 			for (int u = 0; u < modelCow.vertexes.size(); u++) {
 
-				Vec4 
+				Vec4 vectemp = modelCow.vertexes[u].vector;
 				
 				modelCow.vertexes[u].vector = Matrix4x4::multiplication4x4(
 					Matrix4x4::multiplication4x4(translate, scale), rotate);

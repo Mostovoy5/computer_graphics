@@ -2,7 +2,7 @@
 #include "Vec4.h"
 #include <math.h>
 	
-Matrix4x4 multMatrix(Matrix4x4 m1, Matrix4x4 m2) {
+Matrix4x4 Matrix4x4::multMatrix(Matrix4x4 m1, Matrix4x4 m2) {
 	Matrix4x4 m3;
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
@@ -13,7 +13,7 @@ Matrix4x4 multMatrix(Matrix4x4 m1, Matrix4x4 m2) {
 	return m3;
 }
 
-Vec4 multMatrixVec4(Matrix4x4 m, Vec4 v) {
+Vec4 Matrix4x4::multMatrixVec4(Matrix4x4 m, Vec4 v) {
 	Vec4 vRes;
 	for (int i = 0; i < 4; i++) {
 		for (int k = 0; k < 4; k++)
@@ -23,7 +23,7 @@ Vec4 multMatrixVec4(Matrix4x4 m, Vec4 v) {
 }
 
 
-Vec4 rotationX(float angle, Vec4 vec) {
+Vec4 Matrix4x4::rotationX(float angle, Vec4 vec) {
 	float s = sin(angle);
 	float c = cos(angle);
 
@@ -37,7 +37,7 @@ Vec4 rotationX(float angle, Vec4 vec) {
 	multMatrixVec4(rotate, vec);
 }
 
-Vec4 rotationY(float angle, Vec4 vec) {
+Vec4 Matrix4x4::rotationY(float angle, Vec4 vec) {
 	float s = sin(angle);
 	float c = cos(angle);
 
@@ -51,7 +51,7 @@ Vec4 rotationY(float angle, Vec4 vec) {
 	multMatrixVec4(rotate, vec);
 }
 
-Vec4 rotationZ(float angle, Vec4 vec) {
+Vec4 Matrix4x4::rotationZ(float angle, Vec4 vec) {
 	float s = sin(angle);
 	float c = cos(angle);
 
@@ -65,7 +65,12 @@ Vec4 rotationZ(float angle, Vec4 vec) {
 	multMatrixVec4(rotate, vec);
 }
 
-Vec4 scale(float sizeX, float sizeY, float sizeZ, Vec4 vec) {
+Vec4 Matrix4x4::rotation(float angleX, float angleY, float angleZ, Vec4 vec) {
+	multMatrix(rotationX(angleX, vec), )
+}
+
+
+Vec4 Matrix4x4::scale(float sizeX, float sizeY, float sizeZ, Vec4 vec) {
 	Matrix4x4 scale = {
 		sizeX, 0,     0,      0,
 		0,     sizeY, 0,      0,
@@ -75,7 +80,7 @@ Vec4 scale(float sizeX, float sizeY, float sizeZ, Vec4 vec) {
 	multMatrixVec4(scale, vec);
 }
 
-Vec4 translate(float distantX, float distantY, float distantZ, Vec4 vec) {
+Vec4 Matrix4x4::translate(float distantX, float distantY, float distantZ, Vec4 vec) {
 	Matrix4x4 translate = {// Z
 	1, 0, 0, distantX,
 	0, 1, 0, distantY,

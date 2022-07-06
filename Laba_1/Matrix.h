@@ -1,5 +1,6 @@
 #pragma once
 #include "Vec4.h"
+#include "Matrix.cpp"
 class Matrix4x4
 {
 public:
@@ -54,9 +55,16 @@ public:
 
 	/*static Matrix multiplication4x4(float matrix1[4][4], float matrix2[4][4]);
 	static Vec4 multiplication(float translate[4][4], float scale[4][4], float rotate[4][4], Vec4 vec);*/
-	static Vec4 rotation(float angle, Vec4 vec);
-	static Vec4 scale(float size, Vec4 vec);
-	static Vec4 translate(float distant, Vec4 vec);
+	static Matrix4x4 multMatrix(Matrix4x4 m1, Matrix4x4 m2);
+	static Vec4 multMatrixVec4(Matrix4x4 m, Vec4 v);
+
+	static Vec4 rotationX(float angle, Vec4 vec);
+	static Vec4 rotationY(float angle, Vec4 vec);
+	static Vec4 rotationZ(float angle, Vec4 vec);
+	static Vec4 rotation(float angleX, float angleY, float angleZ, Vec4 vec);
+
+	static Vec4 scale(float sizeX, float sizeY, float sizeZ, Vec4 vec);
+	static Vec4 translate(float distantX, float distantY, float distantZ, Vec4 vec);
 
 
 };

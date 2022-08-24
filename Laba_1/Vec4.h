@@ -1,3 +1,4 @@
+#pragma once
 #include "Vec3.h"
 
 class Vec4 {
@@ -13,6 +14,8 @@ public:
 	Vec4 operator-(Vec4 const& other) { return Vec4(x - other.x, y - other.y, z - other.z, f - other.f); };
 	Vec4 operator*(Vec4 const& other) { return Vec4(x * other.x, y * other.y, z * other.z, f * other.f); };
 	Vec4 operator/(Vec4 const& other) { return Vec4(x / other.x, y / other.y, z / other.z, f / other.f); };
+
+	static Vec3 getVec3(Vec4 v) { return Vec3(v.x, v.y, v.z); }
 
 	float getOne(int i) {
 		switch (i)
@@ -35,12 +38,16 @@ public:
 		{
 		case 0:
 			x += val;
+			break;
 		case 1:
 			y += val;
+			break;
 		case 2:
 			z += val;
+			break;
 		case 3:
 			f += val;
+			break;
 		default:
 			break;
 		}
